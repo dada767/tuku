@@ -96,7 +96,6 @@ export function useEditor({ images, showToast, fetchImages }) {
     offsetX: 3,
     offsetY: 3
   })
-  })
 
   // History
   const history = ref([])
@@ -555,6 +554,11 @@ export function useEditor({ images, showToast, fetchImages }) {
     filterValues.brightness = 100
     filterValues.contrast = 100
     filterValues.saturation = 100
+    filterValues.vibrance = 0
+    filterValues.temperature = 0
+    filterValues.clarity = 0
+    filterValues.highlights = 0
+    filterValues.shadows = 0
     if (ctx) {
       ctx.filter = 'none'
     }
