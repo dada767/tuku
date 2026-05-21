@@ -984,6 +984,22 @@ body {
         height: 14px;
     }
 
+    .shadow-group {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+    .shadow-group > label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #e2e8f0;
+        margin-bottom: 6px;
+        display: block;
+    }
+    .shadow-group .slider-group label {
+        font-size: 0.75rem;
+    }
+
     .editor-settings {
         padding: 8px 10px;
         gap: 8px;

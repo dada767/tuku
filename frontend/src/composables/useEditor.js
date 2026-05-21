@@ -1618,8 +1618,14 @@ export function useEditor({ images, showToast, fetchImages }) {
     filterValues.brightness = 100
     filterValues.contrast = 100
     filterValues.saturation = 100
+    filterValues.vibrance = 0
+    filterValues.temperature = 0
+    filterValues.clarity = 0
+    filterValues.highlights = 0
+    filterValues.shadows = 0
     activeFilter.value = null
     isLoading.value = false
+    mosaicDrawing.value = false
 
     isOpen.value = true
     document.body.style.overflow = 'hidden'
@@ -1661,6 +1667,7 @@ export function useEditor({ images, showToast, fetchImages }) {
     crop.active = false
     crop.dragging = false
     brush.isDrawing = false
+    mosaicDrawing.value = false
   }
 
   // =========================================================================
@@ -1731,9 +1738,12 @@ export function useEditor({ images, showToast, fetchImages }) {
     freeAngle,
     crop,
     brush,
+    mosaicBlockSize,
+    mosaicDrawing,
     filterValues,
     activeFilter,
     textState,
+    textShadow,
     history,
     historyIndex,
     undoDisabled,
@@ -1779,6 +1789,19 @@ export function useEditor({ images, showToast, fetchImages }) {
     // Adjust
     activateAdjust,
     resetAdjust,
+    applyVibrance,
+    applyTemperature,
+    applyClarity,
+    applyHighlightsShadows,
+    applyAllAdjustments,
+
+    // Mosaic
+    activateMosaic,
+    mosaicMouseDown,
+    mosaicMouseMove,
+    mosaicMouseUp,
+    applyMosaicAt,
+    drawMosaicBrushOverlay,
 
     // Filter
     applyFilter,
