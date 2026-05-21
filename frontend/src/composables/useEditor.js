@@ -541,11 +541,7 @@ export function useEditor({ images, showToast, fetchImages }) {
         }
       },
       onSliderChange() {
-        bakeFilter()
-        pushHistory()
-        isDirty.value = true
-        // Re-apply filter for continued editing
-        if (_adjustCallbacks) _adjustCallbacks.onSliderInput()
+        applyAllAdjustments()
       }
     }
   }
@@ -1442,8 +1438,6 @@ export function useEditor({ images, showToast, fetchImages }) {
           if (_adjustCallbacks && _adjustCallbacks.onSliderChange) {
             _adjustCallbacks.onSliderChange()
           }
-          // Apply pixel-level adjustments after CSS filter is baked
-          applyAllAdjustments()
         }
 
         if (brightSlider) { on(brightSlider, 'input', updatePreview); on(brightSlider, 'change', onSliderChange) }

@@ -845,6 +845,90 @@ body {
     margin: 0;
 }
 
+/* Mosaic and extra slider styles */
+.slider-group {
+    margin-bottom: 8px;
+}
+.slider-group label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    min-width: 80px;
+}
+.slider-group input[type="range"] {
+    flex: 1;
+    accent-color: var(--primary);
+}
+.slider-group span {
+    font-size: 0.8rem;
+    min-width: 36px;
+    text-align: right;
+    color: #e2e8f0;
+}
+
+.mosaic-actions, .crop-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.mosaic-actions button, .crop-actions button {
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+.mosaic-actions button:hover, .crop-actions button:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.shadow-group {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.shadow-group > label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 6px;
+    display: block;
+}
+.shadow-group .slider-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.shadow-group .slider-group label {
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+.shadow-group .slider-group input[type="range"] {
+    flex: 1;
+    accent-color: var(--primary);
+}
+.shadow-group .slider-group span {
+    min-width: 28px;
+    font-size: 0.75rem;
+    text-align: right;
+    color: #e2e8f0;
+}
+.shadow-group input[type="color"] {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    padding: 1px;
+}
+
 /* ===== Editor Bottombar ===== */
 .editor-bottombar {
     display: flex;
@@ -982,22 +1066,6 @@ body {
     .editor-tool-btn svg {
         width: 14px;
         height: 14px;
-    }
-
-    .shadow-group {
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding-top: 10px;
-        margin-top: 10px;
-    }
-    .shadow-group > label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: #e2e8f0;
-        margin-bottom: 6px;
-        display: block;
-    }
-    .shadow-group .slider-group label {
-        font-size: 0.75rem;
     }
 
     .editor-settings {
