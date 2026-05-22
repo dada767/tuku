@@ -7,6 +7,7 @@ import cv2
 import numpy as np
 from PIL import Image
 from flask import Blueprint, current_app, jsonify, request, send_from_directory
+from flask_jwt_extended import jwt_required
 
 from app.utils import allowed_file, get_image_mime_type, safe_filename
 
@@ -14,6 +15,7 @@ images_bp = Blueprint('images', __name__)
 
 
 @images_bp.route('/api/images')
+@jwt_required()
 def list_images():
     images = []
     upload_dir = current_app.config['UPLOAD_FOLDER']
@@ -32,6 +34,7 @@ def list_images():
 
 
 @images_bp.route('/api/upload', methods=['POST'])
+@jwt_required()
 def upload():
     if 'images' not in request.files:
         return jsonify({'error': '没有找到上传的文件'}), 400
@@ -64,6 +67,7 @@ def upload():
 
 
 @images_bp.route('/api/images/<filename>', methods=['DELETE'])
+@jwt_required()
 def delete_image(filename):
     safe = safe_filename(filename)
     if safe is None:
@@ -88,6 +92,7 @@ def serve_upload(filename):
 
 
 @images_bp.route('/api/inpaint/<filename>', methods=['POST'])
+@jwt_required()
 def inpaint_image(filename):
     safe = safe_filename(filename)
     if safe is None:
@@ -135,6 +140,7 @@ def inpaint_image(filename):
 
 
 @images_bp.route('/api/save-edited/<filename>', methods=['POST'])
+@jwt_required()
 def save_edited(filename):
     safe = safe_filename(filename)
     if safe is None:

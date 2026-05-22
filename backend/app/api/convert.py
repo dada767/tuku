@@ -4,6 +4,7 @@ import uuid
 
 from PIL import Image
 from flask import Blueprint, current_app, jsonify, request
+from flask_jwt_extended import jwt_required
 
 from app.utils import ALLOWED_EXTENSIONS, allowed_file, safe_filename
 
@@ -11,6 +12,7 @@ convert_bp = Blueprint('convert', __name__)
 
 
 @convert_bp.route('/api/convert/<filename>', methods=['POST'])
+@jwt_required()
 def convert_image(filename):
     safe = safe_filename(filename)
     if safe is None:

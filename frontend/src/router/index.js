@@ -5,6 +5,7 @@ const routes = [
     path: '/',
     name: 'gallery',
     component: () => import('../views/GalleryView.vue'),
+    meta: { requiresAuth: true },
   },
   {
     path: '/login',
